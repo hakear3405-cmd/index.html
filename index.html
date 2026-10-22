@@ -36,7 +36,7 @@ try {
 <script>
 const DBKEY='botanicos_pda_demo_v1';
 // DEMO LOCAL ÚNICAMENTE: cambia este código antes de probar el alta policial. En producción, los roles deben validarse en el servidor/base de datos.
-const POLICE_REGISTRATION_CODE='CAMBIAR-POR-CODIGO-POLICIAL';
+const POLICE_REGISTRATION_CODE='LSPD-BOTÁNICOS';
 let currentUser=null,currentPage='overview';
 const $=id=>document.getElementById(id);function db(){try{return JSON.parse(localStorage.getItem(DBKEY))||{users:[]}}catch{return{users:[]}}}function saveDB(d){localStorage.setItem(DBKEY,JSON.stringify(d))}function clean(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function money(n){return '$'+Number(n||0).toLocaleString('en-US')}function initials(n){return n.split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase()||'PJ'}function showAuth(mode){$('authMessage').innerHTML='';$('loginForm').classList.toggle('hidden',mode!=='login');$('registerForm').classList.toggle('hidden',mode!=='register');$('tabLogin').classList.toggle('active',mode==='login');$('tabRegister').classList.toggle('active',mode==='register')}
 function msg(t){$('authMessage').innerHTML='<div class="alert">'+clean(t)+'</div>'}function toast(t){$('toast').textContent=t;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2600)}
